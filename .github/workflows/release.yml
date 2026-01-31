@@ -1,5 +1,8 @@
 name: Release Calibre Plugin
 
+permissions:
+  contents: write
+
 on:
   push:
     tags:
@@ -18,8 +21,7 @@ jobs:
           echo "val=$V" >> $GITHUB_OUTPUT
 
       - name: Build ZIP
-        run: |
-          cd src && zip -r ../ASINFetcherv${{ steps.version.outputs.val }}.zip .
+        run: cd src && zip -r ../ASINFetcherv${{ steps.version.outputs.val }}.zip .
 
       - name: Publish
         uses: softprops/action-gh-release@v2

@@ -1,0 +1,37 @@
+name: Create Calibre Plugin Zip
+
+on:
+  push:
+    tags:
+      - 'v*' # Si attiva quando crei un tag tipo v2.0.0
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Extract version from code
+        id: get_version
+        run: |
+          # Estrae la tupla della versione dal file e la trasforma in x.x.x
+          # Cerca la riga "version = (2, 0, 0)" e pulisce i caratteri
+          VERSION=$(grep "version =" src/__init__.py | sed 's/[^0-9,]//g' | sed 's/,/./g')
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+          echo "Trovata versione: $VERSION"
+
+      - name: Create Zip Package
+        run: |
+          # Entra in src e zippa il contenuto
+          # Il file finale sarà creato nel livello superiore
+          cd src
+          zip -r ../ASINFetcherv${{ steps.get_version.outputs.VERSION }}.zip .
+          cd ..
+
+      - name: Upload to GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ASINFetcherv${{ steps.get_version.outputs.VERSION }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

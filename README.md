@@ -1,24 +1,30 @@
 # Calibre Multi-Store Amazon ASIN Fetcher
 
-Questo plugin per **Calibre** permette di recuperare automaticamente l'identificativo **ASIN** cercando su diversi store Amazon internazionali (IT, COM, UK, DE, FR, ES). È particolarmente utile quando i metadati standard non riescono a trovare il codice univoco del libro.
+A powerful metadata source plugin for **Calibre** designed to automatically retrieve **ASIN** identifiers by searching across multiple international Amazon stores (IT, COM, UK, DE, FR, ES). It is especially useful when standard metadata sources fail to find a book's unique Amazon identifier.
 
-## ✨ Caratteristiche
-- **Ricerca Multi-Store:** Controlla automaticamente le versioni Kindle di diversi paesi.
-- **Smart Validation:** Verifica la pertinenza del risultato confrontando titolo e autore per evitare falsi positivi.
-- **Anti-Bot:** Utilizza User-Agent rotativi e ritardi casuali per minimizzare il rischio di ban dell'IP.
+## ✨ Features
+- **Multi-Store Search:** Automatically checks Kindle versions across different regional stores, including Italy, USA, UK, Germany, France, and Spain.
+- **Smart Validation:** Uses a weighted scoring system to verify results by comparing titles and authors, preventing false positives.
+- **Anti-Bot Protection:** Implements rotating User-Agents and randomized delays to minimize the risk of IP throttling or bans.
+- **Automated Releases:** Built-in GitHub Actions workflow to package the plugin into a ready-to-use ZIP file with every new version tag.
 
-## 🚀 Installazione
-1. Scarica questo repository come file `.zip` (o scarica l'archivio dalle [Releases](../../releases)).
-2. Apri **Calibre**.
-3. Vai in **Preferenze** -> **Plugin**.
-4. Clicca su **Carica plugin da file** e seleziona il file `.zip`.
-5. Riavvia Calibre.
+## 🚀 Installation
+1. Download the latest `ASINFetchervX.X.X.zip` from the [Releases](../../releases) section.
+2. Open **Calibre**.
+3. Navigate to **Preferences** -> **Plugins**.
+4. Click on **Load plugin from file** and select the downloaded `.zip` file.
+5. **Restart** Calibre to activate the plugin.
 
-## ⚠️ Disclaimer e Note Legali
-Questo software è fornito a scopo puramente **educativo** e per **uso personale**. 
-- Il plugin effettua lo scraping di pagine pubbliche di Amazon.
-- L'autore non è responsabile per eventuali violazioni dei Termini di Servizio di Amazon o per il ban del proprio indirizzo IP dovuto a un uso intensivo.
-- Si prega di utilizzare il plugin con moderazione.
+## 📖 How to Use
+1. Select one or more books in your Calibre library.
+2. Click on **Edit Metadata** -> **Download metadata and covers**.
+3. The plugin will search the configured Amazon stores. If a relevant match is found, the `amazon` identifier (ASIN) will be added to your book's metadata.
 
-## 📄 Licenza
-Distribuito sotto licenza MIT. Vedi il file `LICENSE` per dettagli.
+## ⚠️ Disclaimer & Legal Notes
+This software is provided for **educational and personal use only**. 
+- The plugin performs scraping of public Amazon pages.
+- The author is not responsible for any violations of Amazon's Terms of Service or for any IP bans resulting from intensive usage.
+- Please use this tool responsibly and with moderation.
+
+## 📄 License
+Distributed under the **MIT License**. See the [LICENSE](LICENSE) file for more details.

@@ -14,7 +14,7 @@ class AmazonASINFetcher(Source):
     description = 'Multi-Store ASIN Fetcher (IT/COM/UK/DE/FR/ES) with smart validation'
     supported_platforms = ['windows', 'osx', 'linux']
     author = 'Community'
-    version = (2, 0, 1)
+    version = (2, 0, 0)
     minimum_calibre_version = (5, 0, 0)
     
     capabilities = frozenset(['identify'])
